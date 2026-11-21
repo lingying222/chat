@@ -6,16 +6,6 @@ window.__MANIFEST__ = {
     "folders": [],
     "files": [
       {
-        "name": "weixin_2026-11-20.html",
-        "path": "chats/weixin_2026-11-20.html",
-        "title": "微信聊天记录 - 2026-11-20"
-      },
-      {
-        "name": "凌影_2026-11-20.html",
-        "path": "chats/凌影_2026-11-20.html",
-        "title": "微信聊天记录 - 2026-11-20"
-      },
-      {
         "name": "凌影_2026-11-21.html",
         "path": "chats/凌影_2026-11-21.html",
         "title": "微信聊天记录 - 2026-11-21"
@@ -39,16 +29,6 @@ window.__MANIFEST__ = {
         "name": "小潘_2026-11-20.html",
         "path": "chats/小潘_2026-11-20.html",
         "title": "微信聊天记录 - 2026-11-20"
-      },
-      {
-        "name": "小潘_2026-11-21.html",
-        "path": "chats/小潘_2026-11-21.html",
-        "title": "微信聊天记录 - 2026-11-21"
-      },
-      {
-        "name": "微信_2026-11-21.html",
-        "path": "chats/微信_2026-11-21.html",
-        "title": "微信聊天记录 - 2026-11-21"
       }
     ]
   }
