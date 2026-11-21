@@ -1,10 +1,24 @@
 // 由 build_manifest.py 自动生成，请勿手动编辑
 window.__MANIFEST__ = {
-  "generatedAt": "2026-11-21 10:44:45",
+  "generatedAt": "2026-11-21 11:10:49",
   "root": {
     "name": ".",
     "path": "",
-    "folders": [],
+    "folders": [
+      {
+        "name": ".github",
+        "path": ".github",
+        "folders": [
+          {
+            "name": "workflows",
+            "path": ".github/workflows",
+            "folders": [],
+            "files": []
+          }
+        ],
+        "files": []
+      }
+    ],
     "files": [
       {
         "name": "weixin-0ffebfcf3e_2026-11-16.html",
@@ -66,8 +80,8 @@ window.__MANIFEST__ = {
         "name": "微信_2026-11-21.html",
         "path": "微信_2026-11-21.html",
         "title": "微信聊天记录 - 2026-11-21",
-        "size": 3146,
-        "mtime": "2026-11-21 09:26"
+        "size": 4139,
+        "mtime": "2026-11-21 10:45"
       }
     ]
   }
