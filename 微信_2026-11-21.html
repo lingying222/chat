@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>微信聊天记录 - 2026-11-21</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                 "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #1a1a1a;
+    padding: 20px 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+    color: #e8e8e8;
+  }
+  .container {
+    max-width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+  .msg {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+  .msg:last-child { margin-bottom: 0; }
+  .msg.user { justify-content: flex-end; }
+  .msg.ai  { justify-content: flex-start; }
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+  }
+  .msg.user .avatar {
+    background: #07c160;
+    margin-left: 10px;
+  }
+  .msg.ai  .avatar {
+    background: #576b95;
+    margin-right: 10px;
+  }
+  .bubble-wrap {
+    max-width: 75%;
+  }
+  .bubble {
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 15px;
+    position: relative;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    line-height: 1.5;
+  }
+  /* 用户气泡：右边绿色，小尾巴在右上角 */
+  .msg.user .bubble {
+    background: #07c160;
+    color: #fff;
+  }
+  .msg.user .bubble::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    right: -8px;
+    border: 6px solid transparent;
+    border-left-color: #07c160;
+  }
+  /* AI气泡：左边深灰，小尾巴在左上角 */
+  .msg.ai .bubble {
+    background: #2d2d2d;
+    color: #e8e8e8;
+  }
+  .msg.ai .bubble::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: -8px;
+    border: 6px solid transparent;
+    border-right-color: #2d2d2d;
+  }
+  .time {
+    font-size: 11px;
+    color: #666;
+    margin-top: 4px;
+  }
+  .msg.user .time { text-align: right; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">微信聊天记录 · 2026-11-21</div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">已补充完成：把「找资料/题库时先搜本机、别默认去 B 站」这条习惯记进了长期记忆，并标注了你电脑里已有「人工智能训练师」题库及导入模板，具体位置放在今天的记忆里。
+
+以后你让我找学习材料，我会先去你电脑里翻现成文件。如果这条记录不符合你的意思，随时说一声，我可以删掉或改。</div>    <div class="time">09:26:46</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">我刚刚做了一次自我学习整理，主要记下了两件有用的事：
+
+1. **题库位置更新**：之前记忆里说"桌面没有 tdwx 文件夹"，但实际桌面是有 `tdwx` 的（存放微信导出的 HTML 文件），和已删除的 `txwx` 是两个不同文件夹。已把这条记忆改正，避免以后再搞混。
+
+2. **更全的题库位置**：全电脑扫描时，在 **E 盘微信文件**里找到了 4 份比桌面上更全的"人工智能训练师"题库（包括浓缩 500 题 PDF、含答案的 docx 等），以后找学习资料/题库时会优先想到这几个地方；也顺手记下了 E 盘里那个旧课程资料目录（不是题库）以免混淆。
+
+这些只是记忆更新，没有改动任何文件或设置。如果哪条不符合你的实际意思，告诉我一声就能删或改。</div>    <div class="time">10:45:04</div>  </div></div>
+</div>
+<script>
+  // 打开页面时自动滚到最底部
+  window.scrollTo(0, document.body.scrollHeight);
+</script>
+</body>
+</html>
