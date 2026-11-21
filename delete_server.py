@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""本地删除服务：接收导航页长按删除请求，删除对应归档 HTML 并重算清单。
+"""本地删除服务：接收导航页删除按钮请求，删除对应归档 HTML 并重算清单。
 
 启动：python delete_server.py
 监听：127.0.0.1:8765
 接口：
   GET  /health            探活
-  POST /delete?path=xxx   删除 ROOT 内指定 .html（防目录穿越），成功后重建清单
+  POST /delete?path=xxx   删除 chats/ 内指定 .html（防目录穿越），成功后重建清单
 """
 
 import json
@@ -16,24 +16,30 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import build_manifest
 
 ROOT = build_manifest.ROOT
+CHATS = build_manifest.CHATS
+ASSETS = ROOT / "assets"
 HOST = "127.0.0.1"
 PORT = 8765
 PROTECTED = {
     "index.html", "manifest.js", "manifest.json",
-    "build_manifest.py", "delete_server.py",
+    "build_manifest.py", "delete_server.py", "archive_builder.py",
 }
 
 
 def safe_delete(rel: str):
-    """返回 (ok, message)。校验路径在 ROOT 内、只删归档 HTML、不碰受保护文件。"""
+    """返回 (ok, message)。校验路径在 ROOT 内、只删 chats/ 归档 HTML、不碰资源与受保护文件。"""
     rel = rel.strip().lstrip("/\\")
     target = (ROOT / rel).resolve()
     if not target.is_relative_to(ROOT):
         return False, "路径越界"
+    if target.is_relative_to(ASSETS):
+        return False, "资源目录不可删除"
     if target.name in PROTECTED:
         return False, "受保护文件不可删除"
     if target.suffix.lower() != ".html":
         return False, "仅支持删除 HTML 页面"
+    if not target.is_relative_to(CHATS):
+        return False, "仅可删除归档页面"
     if not target.exists():
         return False, "文件不存在"
     target.unlink()

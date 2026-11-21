@@ -99,6 +99,12 @@
   }
   .msg.user .time { text-align: right; }
 </style>
+<style>
+  .msg-img{max-width:220px;border-radius:8px;margin:4px 0;display:block}
+  .bubble a{color:#7db4ff;word-break:break-all}
+  .bubble table{border-collapse:collapse;margin:6px 0}
+  .bubble th,.bubble td{border:1px solid #555;padding:4px 8px;font-size:13px}
+</style>
 </head>
 <body>
 <div class="container">
@@ -181,7 +187,7 @@
 如果您需要查看特定的文件内容或进行进一步的分析，请告诉我。</div>    <div class="time">00:16:41</div>  </div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">这是今天的两个文件（`faf980b6af` 是 11/21，`0ffebfcf3e` 没有今天的）：</div>    <div class="time">00:17:32</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">把今天的文件发给我</div>    <div class="time">00:17:34</div>  </div>  <div class="avatar">我</div></div>
-<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">[文件] file://C:\Users\lingying\Desktop\tdwx\weixin-faf980b6af_2026-11-21.html</div>    <div class="time">00:17:34</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble"><a href="weixin-faf980b6af_2026-11-21.html">weixin-faf980b6af_2026-11-21.html</a></div>    <div class="time">00:17:34</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">扫码桌面文件夹</div>    <div class="time">00:18:08</div>  </div>  <div class="avatar">我</div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">桌面上没有找到名为 `tdwx` 的文件夹。
 
@@ -211,10 +217,10 @@
 
 如果图片没收到或显示异常，告诉我。</div>    <div class="time">00:19:25</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">没收到</div>    <div class="time">00:19:53</div>  </div>  <div class="avatar">我</div></div>
-<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">[图片] file://C:\Users\lingying\cow\tmp\desktop_screenshot_2026-11-21.png</div>    <div class="time">00:19:53</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble"><img class="msg-img" src="../assets/images/e950623b.png" alt="聊天图片" /></div>    <div class="time">00:19:53</div>  </div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">已重新发送图片，请查收。</div>    <div class="time">00:19:53</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">截图截桌面</div>    <div class="time">00:20:43</div>  </div>  <div class="avatar">我</div></div>
-<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">[图片] file://C:\Users\lingying\cow\tmp\desktop_grid_2026-11-21.png</div>    <div class="time">00:20:43</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble"><img class="msg-img" src="../assets/images/493f6511.png" alt="聊天图片" /></div>    <div class="time">00:20:43</div>  </div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">已发送**桌面图标网格示意图**（120KB，86 项）。
 
 **说明**：
@@ -234,7 +240,7 @@
 Agent error: 抱歉，主模型与全部兜底模型均调用失败，请检查模型配置或供应商状态。
 nvidia/nemotron-3-ultra-550b-a55b: {'status': 429, 'title': 'Too Many Requests'} (Status: 429, Code: , Type: ) | nvidia/nemotron-3-ultra-550b-a55b: {'status': 429, 'title': 'Too Many Requests'} (Status: 429, Code: , Type: )</div>    <div class="time">00:22:54</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">就要截图</div>    <div class="time">00:24:23</div>  </div>  <div class="avatar">我</div></div>
-<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">[图片] file://C:\Users\lingying\cow\tmp\desktop_real.png</div>    <div class="time">00:24:23</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble"><img class="msg-img" src="../assets/images/6791811d.png" alt="聊天图片" /></div>    <div class="time">00:24:23</div>  </div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">已发送**真实桌面截图**（135 KB，1920×1200）。
 
 这次用 `ctypes + GDI BitBlt` 直接抓取 Windows 桌面 DC，绕过沙箱限制，成功拿到真实屏幕画面。</div>    <div class="time">00:24:23</div>  </div></div>
@@ -705,9 +711,9 @@ D盘空闲空间已随之增加。要我查一下其他 WeGame 游戏占了多�
 
 要我把**今天这 3 个**微信 HTML 文件打开看看内容，或提取里面的文字吗？</div>    <div class="time">09:44:52</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">然后发给我</div>    <div class="time">09:45:04</div>  </div>  <div class="avatar">我</div></div>
-<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">[文件] file://C:\Users\lingying\Desktop\tdwx\weixin-0ffebfcf3e_2026-11-21.html</div>    <div class="time">09:45:04</div>  </div></div>
-<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">[文件] file://C:\Users\lingying\Desktop\tdwx\weixin-faf980b6af_2026-11-21.html</div>    <div class="time">09:45:07</div>  </div></div>
-<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">[文件] file://C:\Users\lingying\Desktop\tdwx\微信_2026-11-21.html</div>    <div class="time">09:45:09</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble"><a href="weixin-0ffebfcf3e_2026-11-21.html">weixin-0ffebfcf3e_2026-11-21.html</a></div>    <div class="time">09:45:04</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble"><a href="weixin-faf980b6af_2026-11-21.html">weixin-faf980b6af_2026-11-21.html</a></div>    <div class="time">09:45:07</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble"><a href="微信_2026-11-21.html">微信_2026-11-21.html</a></div>    <div class="time">09:45:09</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">发给我</div>    <div class="time">09:45:16</div>  </div>  <div class="avatar">我</div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">[文件] file://C:\Users\lingying\Desktop\openai课程\OpenAI官方课程知识点清单.md</div>    <div class="time">09:45:16</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">把tdwx今天的文件重新发我</div>    <div class="time">10:28:56</div>  </div>  <div class="avatar">我</div></div>
@@ -723,9 +729,9 @@ D盘空闲空间已随之增加。要我查一下其他 WeGame 游戏占了多�
 
 需要我把这几个 HTML 提取成**纯文字 txt** 的话说一声。</div>    <div class="time">10:28:56</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">发给我</div>    <div class="time">10:34:37</div>  </div>  <div class="avatar">我</div></div>
-<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">[文件] file://C:\Users\lingying\Desktop\tdwx\weixin-0ffebfcf3e_2026-11-21.html</div>    <div class="time">10:34:37</div>  </div></div>
-<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">[文件] file://C:\Users\lingying\Desktop\tdwx\weixin-faf980b6af_2026-11-21.html</div>    <div class="time">10:34:40</div>  </div></div>
-<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">[文件] file://C:\Users\lingying\Desktop\tdwx\微信_2026-11-21.html</div>    <div class="time">10:34:42</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble"><a href="weixin-0ffebfcf3e_2026-11-21.html">weixin-0ffebfcf3e_2026-11-21.html</a></div>    <div class="time">10:34:37</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble"><a href="weixin-faf980b6af_2026-11-21.html">weixin-faf980b6af_2026-11-21.html</a></div>    <div class="time">10:34:40</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble"><a href="微信_2026-11-21.html">微信_2026-11-21.html</a></div>    <div class="time">10:34:42</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">现在给tdwx里面的首页html加一个功能，长按某条聊天记录可以删除该聊天记录，做完之后上传github</div>    <div class="time">11:42:25</div>  </div>  <div class="avatar">我</div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">[error] [ERROR]
 Agent error: 抱歉，主模型与全部兜底模型均调用失败，请检查模型配置或供应商状态。
@@ -735,5 +741,8 @@ nvidia/nemotron-3-ultra-550b-a55b: {'status': 429, 'title': 'Too Many Requests'}
   // 打开页面时自动滚到最底部
   window.scrollTo(0, document.body.scrollHeight);
 </script>
+<script src="../assets/lib/marked.min.js"></script>
+<script src="../assets/lib/purify.min.js"></script>
+<script src="../assets/lib/render-markdown.js"></script>
 </body>
 </html>

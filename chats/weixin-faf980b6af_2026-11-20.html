@@ -99,6 +99,12 @@
   }
   .msg.user .time { text-align: right; }
 </style>
+<style>
+  .msg-img{max-width:220px;border-radius:8px;margin:4px 0;display:block}
+  .bubble a{color:#7db4ff;word-break:break-all}
+  .bubble table{border-collapse:collapse;margin:6px 0}
+  .bubble th,.bubble td{border:1px solid #555;padding:4px 8px;font-size:13px}
+</style>
 </head>
 <body>
 <div class="container">
@@ -114,7 +120,7 @@ agnes-3.0-flash: 今日文本额度已用完，当前处于限速模式：每 3 
 
 需要我帮你把这个画面**生成成图**，还是想围绕这个设定**聊点别的**（如故事、设定集、提示词优化）？</div>    <div class="time">23:29:24</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">生图</div>    <div class="time">23:30:28</div>  </div>  <div class="avatar">我</div></div>
-<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">[图片] file://C:\Users\lingying\cow\images\7d81a3771f29.png</div>    <div class="time">23:30:28</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble"><img class="msg-img" src="../assets/images/d847d37b.png" alt="聊天图片" /></div>    <div class="time">23:30:28</div>  </div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">生成完成！这条上古真龙拥有：
 
 - **单首独角**，威严端坐云端
@@ -128,5 +134,8 @@ agnes-3.0-flash: 今日文本额度已用完，当前处于限速模式：每 3 
   // 打开页面时自动滚到最底部
   window.scrollTo(0, document.body.scrollHeight);
 </script>
+<script src="../assets/lib/marked.min.js"></script>
+<script src="../assets/lib/purify.min.js"></script>
+<script src="../assets/lib/render-markdown.js"></script>
 </body>
 </html>

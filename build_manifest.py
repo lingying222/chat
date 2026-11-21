@@ -18,7 +18,8 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-IGNORE_DIRS = {".git", ".github", "node_modules", "__pycache__", ".venv", "venv"}
+CHATS = ROOT / "chats"
+IGNORE_DIRS = {".git", ".github", "node_modules", "__pycache__", ".venv", "venv", "assets"}
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.I | re.S)
 
 
@@ -64,7 +65,9 @@ def build_node(path: Path) -> dict:
 def snapshot() -> dict:
     """记录当前所有文件的修改时间，用于监听模式判断变化。"""
     state = {}
-    for path in ROOT.rglob("*"):
+    if not CHATS.exists():
+        return state
+    for path in CHATS.rglob("*"):
         if any(part in IGNORE_DIRS for part in path.parts):
             continue
         if path.is_file():
@@ -84,7 +87,7 @@ def write_manifest(data: dict) -> None:
 def build() -> dict:
     """清单只包含目录事实，不带生成时间——同一份目录永远得到同一份清单，
     这样自动提交不会因为时间戳变化而反复触发。"""
-    return {"root": build_node(ROOT)}
+    return {"root": build_node(CHATS)}
 
 
 def main() -> None:
