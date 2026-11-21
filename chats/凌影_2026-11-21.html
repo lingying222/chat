@@ -198,6 +198,97 @@
 
 现在是 15:28，还有 32 分钟到点。需要改时间、加个内容（比如提醒你做什么），或者删掉，跟我说一声就行。</div>    <div class="time">15:28:28</div>  </div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">16 点到啦，该做什么做什么～</div>    <div class="time">16:00:00</div>  </div></div>
+<div class="msg user">  <div class="bubble-wrap">    <div class="bubble">在电脑桌面找到登录的QQ，进去找到der的用户，在消息框编辑一段浪漫爱情故事</div>    <div class="time">16:48:01</div>  </div>  <div class="avatar">我</div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">找到 QQ 窗口了（8 个顶层窗口，都是 `QQ.exe` 进程的），但**无法可靠自动化完成「找用户、发消息」**：
+- QQ NT 用 Qt 写的，无标准 Windows 控件、无 UIA/IA2 无障碍树
+- 窗口标题只是单字母 `"Q"`、`"M"`、`"D"`，无法区分会话列表 / 聊天框 / 搜索框
+- 唯一能做的就是 `SetForegroundWindow` 把窗口拉前台，后面全靠人眼/鼠标
+
+---
+
+### 可行的折中方案
+
+| 方案 | 可行性 | 说明 |
+|---|---|---|
+| **你把 QQ 放前台/搜好 "der"**，我只负责“把故事文本写好、复制到剪贴板” | ✅ 最稳 | 你 Ctrl+V 发送即可 |
+| **用 `pyautogui` 模拟键鼠**（搜索框→输入 der→回车→粘贴→回车） | ⚠️ 极易失败 | 坐标会变、弹窗遮挡、中文输入法切换、QQ 版本更新全会挂 |
+| **通过 QQ 协议/第三方库（go-cqhttp、NTQQ Bot 等）发消息** | ✅ 正规但需配置 | 需你预先搭好 Bot、拿 token、配好风控白名单 |
+
+---
+
+### 我先帮你把 **一段浪漫爱情故事** 写好、存文件、放剪贴板，你只需在 QQ 里 Ctrl+V 发给 der：
+
+```text
+凌晨三点的便利店，霓虹灯把雨夜染成青色。
+
+她买一罐温热的柠檬茶，他在货架后补货，手里攥着同款。
+
+"又是这个？" 她笑，指尖碰到他冰凉的指节。
+
+"嗯。" 他把条形码对准扫码枪，"beep——" 一声，屏幕跳出 ¥4.50。
+
+她付钱，转身推门，雨停了。罐身凝结的水珠顺着指缝滑落，他忽然追出来，把自己那罐塞进她手心：
+
+"你的凉了，换我的。"
+
+她怔住，罐身传来掌心的余温，比柠檬茶更甜。
+
+后来便利店关了，霓虹灯拆了，但两罐没喝完的柠檬茶还在冰箱最上层——
+
+标签上歪歪扭扭写着：`世界上最甜的保质期，是爱你的每一天。`
+```
+
+---
+
+要我把这段文字：
+1. **写入 `C:\Users\lingying\Desktop\爱情故事_给der.txt`**（你随时能找到）
+2. **顺带复制到剪贴板**（`Ctrl+V` 即发）
+
+还是你想尝试 `pyautogui` 自动化？（我可以写脚本，但成功率极低，不建议）</div>    <div class="time">16:48:01</div>  </div></div>
+<div class="msg user">  <div class="bubble-wrap">    <div class="bubble">搞得定不</div>    <div class="time">16:50:42</div>  </div>  <div class="avatar">我</div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">**结论：搞不定**（自动化这条路走不通）
+
+---
+
+### 实际发生了什么
+
+| 步骤 | 结果 |
+|---|---|
+| 找到 QQ 窗口 | ✅ 8 个进程，最大窗口 `hwnd=0x1408ec` |
+| `Ctrl+F` 搜索 "der" | ✅ 触发了搜索框 |
+| **搜索结果里有 der 吗** | ❌ **没有** — Vision 看到的联系人是：陈冰冰、陈赋、吴薇……没 der |
+| 打开聊天窗口 | ❌ 没找到，所以下 arrow + enter 只是选中了第一个联系人（陈冰冰） |
+| 粘贴故事 | ⚠️ 粘贴进了**主面板的输入框**（不是聊天输入框），内容也没发出去 |
+
+QQ NT 用 Qt 绘制，**没有标准无障碍树**，`pyautogui` 只能靠坐标瞎点，根本定位不到“搜索结果列表”“聊天输入框”这些控件。
+
+---
+
+### 现在能做什么（最靠谱的方案）
+
+**故事文本已备好**，两个地方都有：
+
+1. **剪贴板** — 刚才脚本已经 `pyperclip.copy(story)` 了，你直接 `Ctrl+V` 就能粘贴
+2. **文件备份** — `C:\Users\lingying\cow\tmp\story_for_der.txt`
+
+---
+
+### 你只需 3 步手动完成（&lt; 30 秒）
+
+1. 把 QQ 窗口点到前台
+2. `Ctrl+F` → 输入 `der` → 回车打开 ta 的聊天框
+3. 在**聊天输入框** `Ctrl+V` → 回车发送
+
+---
+
+### 如果 "der" 真不在联系人里
+- 可能是**备注名/昵称不叫 der**（比如 QQ 号、花名、拼音首字母）
+- 试着在搜索框输 **QQ 号**、**手机号**、**曾用名** 任意一个片段
+- 还是没有 = 根本没加好友 / 被删了 / 在另一个 QQ 号里
+
+---
+
+需要我把故事再改个版本、或帮你查别的联系人关键词，随时说。🎯</div>    <div class="time">16:50:42</div>  </div></div>
 </div>
 <script>
   // 打开页面时自动滚到最底部
