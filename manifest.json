@@ -2,71 +2,78 @@
   "root": {
     "name": ".",
     "path": "",
-    "folders": [],
-    "files": [
+    "folders": [
       {
-        "name": "weixin-0ffebfcf3e_2026-11-16.html",
-        "path": "weixin-0ffebfcf3e_2026-11-16.html",
-        "title": "微信聊天记录 - 2026-11-16",
-        "size": 16575,
-        "mtime": "2026-11-21 03:50"
-      },
-      {
-        "name": "weixin-0ffebfcf3e_2026-11-17.html",
-        "path": "weixin-0ffebfcf3e_2026-11-17.html",
-        "title": "微信聊天记录 - 2026-11-17",
-        "size": 37261,
-        "mtime": "2026-11-21 03:50"
-      },
-      {
-        "name": "weixin-0ffebfcf3e_2026-11-18.html",
-        "path": "weixin-0ffebfcf3e_2026-11-18.html",
-        "title": "微信聊天记录 - 2026-11-18",
-        "size": 17759,
-        "mtime": "2026-11-21 03:50"
-      },
-      {
-        "name": "weixin-0ffebfcf3e_2026-11-20.html",
-        "path": "weixin-0ffebfcf3e_2026-11-20.html",
-        "title": "微信聊天记录 - 2026-11-20",
-        "size": 4183,
-        "mtime": "2026-11-21 03:50"
-      },
-      {
-        "name": "weixin-0ffebfcf3e_2026-11-21.html",
-        "path": "weixin-0ffebfcf3e_2026-11-21.html",
-        "title": "微信聊天记录 - 2026-11-21",
-        "size": 8561,
-        "mtime": "2026-11-21 03:50"
-      },
-      {
-        "name": "weixin-faf980b6af_2026-11-20.html",
-        "path": "weixin-faf980b6af_2026-11-20.html",
-        "title": "微信聊天记录 - 2026-11-20",
-        "size": 4982,
-        "mtime": "2026-11-21 03:50"
-      },
-      {
-        "name": "weixin-faf980b6af_2026-11-21.html",
-        "path": "weixin-faf980b6af_2026-11-21.html",
-        "title": "微信聊天记录 - 2026-11-21",
-        "size": 49699,
-        "mtime": "2026-11-21 03:50"
-      },
-      {
-        "name": "weixin_2026-11-20.html",
-        "path": "weixin_2026-11-20.html",
-        "title": "微信聊天记录 - 2026-11-20",
-        "size": 107723,
-        "mtime": "2026-11-21 03:50"
-      },
-      {
-        "name": "微信_2026-11-21.html",
-        "path": "微信_2026-11-21.html",
-        "title": "微信聊天记录 - 2026-11-21",
-        "size": 4061,
-        "mtime": "2026-11-21 03:50"
+        "name": "chats",
+        "path": "chats",
+        "folders": [],
+        "files": [
+          {
+            "name": "weixin-0ffebfcf3e_2026-11-16.html",
+            "path": "chats/weixin-0ffebfcf3e_2026-11-16.html",
+            "title": "微信聊天记录 - 2026-11-16",
+            "size": 16575,
+            "mtime": "2026-11-21 04:12"
+          },
+          {
+            "name": "weixin-0ffebfcf3e_2026-11-17.html",
+            "path": "chats/weixin-0ffebfcf3e_2026-11-17.html",
+            "title": "微信聊天记录 - 2026-11-17",
+            "size": 37261,
+            "mtime": "2026-11-21 04:12"
+          },
+          {
+            "name": "weixin-0ffebfcf3e_2026-11-18.html",
+            "path": "chats/weixin-0ffebfcf3e_2026-11-18.html",
+            "title": "微信聊天记录 - 2026-11-18",
+            "size": 17759,
+            "mtime": "2026-11-21 04:12"
+          },
+          {
+            "name": "weixin-0ffebfcf3e_2026-11-20.html",
+            "path": "chats/weixin-0ffebfcf3e_2026-11-20.html",
+            "title": "微信聊天记录 - 2026-11-20",
+            "size": 4183,
+            "mtime": "2026-11-21 04:12"
+          },
+          {
+            "name": "weixin-0ffebfcf3e_2026-11-21.html",
+            "path": "chats/weixin-0ffebfcf3e_2026-11-21.html",
+            "title": "微信聊天记录 - 2026-11-21",
+            "size": 8561,
+            "mtime": "2026-11-21 04:12"
+          },
+          {
+            "name": "weixin-faf980b6af_2026-11-20.html",
+            "path": "chats/weixin-faf980b6af_2026-11-20.html",
+            "title": "微信聊天记录 - 2026-11-20",
+            "size": 4982,
+            "mtime": "2026-11-21 04:12"
+          },
+          {
+            "name": "weixin-faf980b6af_2026-11-21.html",
+            "path": "chats/weixin-faf980b6af_2026-11-21.html",
+            "title": "微信聊天记录 - 2026-11-21",
+            "size": 49699,
+            "mtime": "2026-11-21 04:12"
+          },
+          {
+            "name": "weixin_2026-11-20.html",
+            "path": "chats/weixin_2026-11-20.html",
+            "title": "微信聊天记录 - 2026-11-20",
+            "size": 107723,
+            "mtime": "2026-11-21 04:12"
+          },
+          {
+            "name": "微信_2026-11-21.html",
+            "path": "chats/微信_2026-11-21.html",
+            "title": "微信聊天记录 - 2026-11-21",
+            "size": 4061,
+            "mtime": "2026-11-21 04:12"
+          }
+        ]
       }
-    ]
+    ],
+    "files": []
   }
 }
