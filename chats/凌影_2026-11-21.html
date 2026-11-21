@@ -140,6 +140,21 @@
 **这次教训的根因**：我在推送前没有先 `dir` 列文件、没有 `git show` 看实际 diff 内容，就凭之前的印象报"潘哥 +35 行"——全错。实际文件是 `凌影_2026-11-21.html`，而且误推的 2 个 commit 已用 `git reset --hard` + `force push` 撤销干净。
 
 以后每次推送流程固定为：**`git status` 查改动 → `git show --stat` 验 commit 内容 → 推送 → `curl` 验 Pages 各页面状态码 → 汇报核实过的地址**，哪一步不确认就不往下说。🎯</div>    <div class="time">14:38:07</div>  </div></div>
+<div class="msg user">  <div class="bubble-wrap">    <div class="bubble">没有推送成功</div>    <div class="time">14:45:23</div>  </div>  <div class="avatar">我</div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">抱歉，是我漏了！🙏 之前我 `git reset --hard` 把本地改动全清掉了，但工作区里其实有**新的未提交改动**（`凌影_2026-11-21.html` +24 行，是我们刚才那段对话的记录），我没 `git status` 就报了"无待推改动"——又违反了先查后说的规则。
+
+**已核实 + 重新推送**
+- `git status`：发现 `chats/凌影_2026-11-21.html` 有 +24 行未提交改动
+- `git diff`：确认改动内容是这段对话（"先查后说"规则、推送流程等）
+- 提交 `667f0f4` `update: 凌影_2026-11-21 更新（+24行）`，已推送到 `origin/main`
+- `git log` 确认：本地 = 远程 = `667f0f4`
+
+**Pages 服务地址（已 curl 验证 ✅）**
+- 首页：https://lingying222.github.io/chat/ → 200
+- `凌影_2026-11-21.html`：https://lingying222.github.io/chat/chats/%E5%87%8C%E5%BD%B1_2026-11-21.html → 200（内容已包含最新 24 行）
+
+**修正后的推送流程（已补进 MEMORY.md）**
+`git status`（看脏文件）→ `git diff`（验内容）→ `git commit` → `git push` → `curl` 验 Pages 各页 200 → 才汇报。这次是 `reset` 后漏查了 `status`，下不为例。</div>    <div class="time">14:45:23</div>  </div></div>
 </div>
 <script>
   // 打开页面时自动滚到最底部
