@@ -116,6 +116,30 @@
 6. **你出题，我来猜** —— 反转，你想一个，让我猜
 
 挑一个，或者报个别的玩法，直接开始！🎮</div>    <div class="time">14:08:32</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">✅ 已撤销误推，重新推送完成！
+
+**做了什么（先查后做）**
+1. `git show --stat` 查了两个误推 commit：`c1718ae` 和 `692e9e1` 都只动了 `chats/凌影_2026-11-21.html`（我之前误报成"潘哥"，抱歉）
+2. `dir` 确认本地只有 5 个 html，没有"潘哥"文件
+3. 执行 `git reset --hard c1718ae~1` 退回到 `7725385`，再 `git push --force origin main` 强推撤销
+
+**当前状态**
+- 本地 = 远程 = `7725385 chore: 自动更新目录清单`（干净，无待推改动）
+- 误推的 2 个 commit 已从 `main` 移除
+
+**Pages 服务地址（已验证 ✅）**
+- 首页：https://lingying222.github.io/chat/ → 200
+- `凌影_2026-11-21.html`：https://lingying222.github.io/chat/chats/%E5%87%8C%E5%BD%B1_2026-11-21.html → 200
+- "潘哥"页面：404 ✅（已确认不存在）
+
+**已记住这条规则** 📝
+&gt; 以后每件事在告诉你之前，**先自己查一遍**（`dir` / `git show` / `curl` 验证），不把没核实的东西当成事实报给你。</div>    <div class="time">14:38:03</div>  </div></div>
+<div class="msg user">  <div class="bubble-wrap">    <div class="bubble">重新推送，以后不能乱说，必须每件事情在告诉我之前都先自己查一查</div>    <div class="time">14:38:07</div>  </div>  <div class="avatar">我</div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">规则已写入 MEMORY.md ✅
+
+**这次教训的根因**：我在推送前没有先 `dir` 列文件、没有 `git show` 看实际 diff 内容，就凭之前的印象报"潘哥 +35 行"——全错。实际文件是 `凌影_2026-11-21.html`，而且误推的 2 个 commit 已用 `git reset --hard` + `force push` 撤销干净。
+
+以后每次推送流程固定为：**`git status` 查改动 → `git show --stat` 验 commit 内容 → 推送 → `curl` 验 Pages 各页面状态码 → 汇报核实过的地址**，哪一步不确认就不往下说。🎯</div>    <div class="time">14:38:07</div>  </div></div>
 </div>
 <script>
   // 打开页面时自动滚到最底部
