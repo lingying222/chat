@@ -6,8 +6,12 @@
   python build_manifest.py            # 生成一次
   python build_manifest.py --watch    # 监听目录变化，自动重新生成
 
-清单内容：当前目录下所有子文件夹与 HTML 页面（含标题、大小、修改时间）。
+清单内容：当前目录下所有子文件夹与 HTML 页面（标题、文件名、相对路径）。
 index.html 通过 manifest.js 读取清单，新增/删除文件后重新运行本脚本即可刷新导航。
+
+清单刻意不含文件大小与修改时间：这两项跟在哪个系统检出有关（换行符、
+检出时刻都会不同），一旦写进清单，本地生成与 CI 生成的版本就会永远对不上，
+每次自动同步都产生一个空提交。只记录目录事实，任何环境生成的清单都完全一致。
 """
 
 import json
@@ -48,13 +52,10 @@ def build_node(path: Path) -> dict:
                 continue
             folders.append(build_node(entry))
         elif entry.suffix.lower() == ".html" and entry.name != "index.html":
-            stat = entry.stat()
             files.append({
                 "name": entry.name,
                 "path": entry.relative_to(ROOT).as_posix(),
                 "title": read_title(entry),
-                "size": stat.st_size,
-                "mtime": datetime.fromtimestamp(stat.st_mtime).strftime("%Y-%m-%d %H:%M"),
             })
 
     rel = path.relative_to(ROOT).as_posix() if path != ROOT else ""

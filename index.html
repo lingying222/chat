@@ -88,12 +88,6 @@
   <script>
     const state = { data: null, timer: null };
 
-    function fmtSize(bytes) {
-      if (bytes < 1024) return bytes + " B";
-      if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + " KB";
-      return (bytes / 1024 / 1024).toFixed(2) + " MB";
-    }
-
     function loadManifest() {
       return new Promise((resolve, reject) => {
         const script = document.createElement("script");
@@ -129,7 +123,7 @@
       a.rel = "noopener";
       a.innerHTML =
         '<div class="title" title="' + escapeHtml(file.title) + '">📄 ' + escapeHtml(file.title) + "</div>" +
-        '<div class="sub"><span>' + escapeHtml(file.name) + "</span><span>" + file.mtime + "</span><span>" + fmtSize(file.size) + "</span></div>";
+        '<div class="sub"><span>' + escapeHtml(file.name) + "</span><span>" + escapeHtml(splitDate(file).label) + "</span></div>";
 
       const btn = document.createElement("button");
       btn.className = "del-btn";
@@ -144,21 +138,6 @@
 
       wrap.appendChild(a);
       wrap.appendChild(btn);
-
-      let pressTimer = null;
-      const startPress = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        pressTimer = setTimeout(() => deleteFile(file), 600);
-      };
-      const cancelPress = (e) => {
-        if (pressTimer) clearTimeout(pressTimer);
-        pressTimer = null;
-      };
-      wrap.addEventListener("touchstart", startPress, { passive: false });
-      wrap.addEventListener("touchend", cancelPress);
-      wrap.addEventListener("touchcancel", cancelPress);
-      wrap.addEventListener("touchmove", cancelPress);
 
       return wrap;
     }
@@ -176,7 +155,6 @@
     function splitDate(file) {
       const m = file.name.match(/(\d{4}-\d{2}-\d{2})/);
       if (m) return { label: m[1], sort: m[1] };
-      if (file.mtime && file.mtime.length >= 10) return { label: file.mtime.slice(0, 10), sort: file.mtime.slice(0, 10) };
       return { label: "未知日期", sort: "0000-00-00" };
     }
 
@@ -197,7 +175,7 @@
 
       keys.forEach((sort, idx) => {
         const g = groups.get(sort);
-        const files = g.files.slice().sort((a, b) => b.mtime.localeCompare(a.mtime));
+        const files = g.files.slice().sort((a, b) => b.name.localeCompare(a.name));
         const el = document.createElement("div");
         el.className = "group";
         const head = document.createElement("div");
