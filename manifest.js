@@ -6,44 +6,44 @@ window.__MANIFEST__ = {
     "folders": [],
     "files": [
       {
-        "name": "weixin-0ffebfcf3e_2026-11-16.html",
-        "path": "chats/weixin-0ffebfcf3e_2026-11-16.html",
-        "title": "微信聊天记录 - 2026-11-16"
-      },
-      {
-        "name": "weixin-0ffebfcf3e_2026-11-17.html",
-        "path": "chats/weixin-0ffebfcf3e_2026-11-17.html",
-        "title": "微信聊天记录 - 2026-11-17"
-      },
-      {
-        "name": "weixin-0ffebfcf3e_2026-11-18.html",
-        "path": "chats/weixin-0ffebfcf3e_2026-11-18.html",
-        "title": "微信聊天记录 - 2026-11-18"
-      },
-      {
-        "name": "weixin-0ffebfcf3e_2026-11-20.html",
-        "path": "chats/weixin-0ffebfcf3e_2026-11-20.html",
-        "title": "微信聊天记录 - 2026-11-20"
-      },
-      {
-        "name": "weixin-0ffebfcf3e_2026-11-21.html",
-        "path": "chats/weixin-0ffebfcf3e_2026-11-21.html",
-        "title": "微信聊天记录 - 2026-11-21"
-      },
-      {
-        "name": "weixin-faf980b6af_2026-11-20.html",
-        "path": "chats/weixin-faf980b6af_2026-11-20.html",
-        "title": "微信聊天记录 - 2026-11-20"
-      },
-      {
-        "name": "weixin-faf980b6af_2026-11-21.html",
-        "path": "chats/weixin-faf980b6af_2026-11-21.html",
-        "title": "微信聊天记录 - 2026-11-21"
-      },
-      {
         "name": "weixin_2026-11-20.html",
         "path": "chats/weixin_2026-11-20.html",
         "title": "微信聊天记录 - 2026-11-20"
+      },
+      {
+        "name": "凌影_2026-11-20.html",
+        "path": "chats/凌影_2026-11-20.html",
+        "title": "微信聊天记录 - 2026-11-20"
+      },
+      {
+        "name": "凌影_2026-11-21.html",
+        "path": "chats/凌影_2026-11-21.html",
+        "title": "微信聊天记录 - 2026-11-21"
+      },
+      {
+        "name": "小潘_2026-11-16.html",
+        "path": "chats/小潘_2026-11-16.html",
+        "title": "微信聊天记录 - 2026-11-16"
+      },
+      {
+        "name": "小潘_2026-11-17.html",
+        "path": "chats/小潘_2026-11-17.html",
+        "title": "微信聊天记录 - 2026-11-17"
+      },
+      {
+        "name": "小潘_2026-11-18.html",
+        "path": "chats/小潘_2026-11-18.html",
+        "title": "微信聊天记录 - 2026-11-18"
+      },
+      {
+        "name": "小潘_2026-11-20.html",
+        "path": "chats/小潘_2026-11-20.html",
+        "title": "微信聊天记录 - 2026-11-20"
+      },
+      {
+        "name": "小潘_2026-11-21.html",
+        "path": "chats/小潘_2026-11-21.html",
+        "title": "微信聊天记录 - 2026-11-21"
       },
       {
         "name": "微信_2026-11-21.html",
