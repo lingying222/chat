@@ -24,29 +24,32 @@
     header {
       position: sticky; top: 0; z-index: 10;
       background: var(--card); border-bottom: 1px solid var(--border);
-      padding: 16px 24px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
+      padding: 14px 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 12px;
     }
-    header h1 { font-size: 20px; font-weight: 700; }
+    header h1 { font-size: 19px; font-weight: 700; }
     header .meta { color: var(--muted); font-size: 13px; }
     header .spacer { flex: 1; }
     label.switch { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); cursor: pointer; }
-    main { max-width: 1080px; margin: 0 auto; padding: 24px 24px 64px; }
+    main { max-width: 1080px; margin: 0 auto; padding: 28px 28px 72px; }
     .section-title { font-size: 15px; font-weight: 600; margin: 24px 0 12px; color: var(--text); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
     .card {
-      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
-      padding: 16px; box-shadow: var(--shadow); color: var(--text);
-      transition: border-color .15s, transform .15s; display: flex; align-items: flex-start; gap: 10px;
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+      padding: 20px 22px; box-shadow: var(--shadow); color: var(--text);
+      transition: border-color .15s, transform .15s, box-shadow .15s;
     }
-    .card:hover { border-color: var(--primary); transform: translateY(-2px); }
-    .card-main { flex: 1; text-decoration: none; color: inherit; min-width: 0; }
-    .del-btn {
-      flex-shrink: 0; border: 1px solid var(--border); background: #fff; color: #ef4444;
-      border-radius: 8px; width: 34px; height: 34px; cursor: pointer; font-size: 15px; line-height: 1;
+    .card:hover {
+      border-color: var(--primary); transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(15, 23, 42, .10);
     }
-    .del-btn:hover { background: #fef2f2; border-color: #ef4444; }
-    .card .title { font-size: 15px; font-weight: 600; margin-bottom: 6px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .card .sub { font-size: 12px; color: var(--muted); display: flex; gap: 10px; flex-wrap: wrap; }
+    .card-main { display: block; text-decoration: none; color: inherit; min-width: 0; }
+    .card .title {
+      font-size: 15px; font-weight: 600; margin-bottom: 8px; line-height: 1.4;
+      overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .card .sub {
+      font-size: 12px; color: var(--muted); display: flex; gap: 14px; flex-wrap: wrap; margin-top: 2px;
+    }
     .folder { border: 1px solid var(--border); border-radius: 12px; background: var(--card); margin-bottom: 14px; overflow: hidden; }
     .folder-head {
       display: flex; align-items: center; gap: 10px; padding: 14px 16px; cursor: pointer; user-select: none;
@@ -61,9 +64,9 @@
     .folder.open .folder-body { display: block; }
     .folder-body .grid { margin-top: 4px; }
     .empty { color: var(--muted); font-size: 14px; padding: 24px 0; }
-    .badge { display: inline-block; background: var(--primary-soft); color: var(--primary); border-radius: 999px; padding: 2px 10px; font-size: 12px; }
-    .group { margin-bottom: 8px; }
-    .group-head { display: flex; align-items: baseline; gap: 10px; margin: 24px 0 12px; }
+    .badge { display: inline-block; background: var(--primary-soft); color: var(--primary); border-radius: 999px; padding: 3px 12px; font-size: 12px; }
+    .group { margin-bottom: 4px; }
+    .group-head { display: flex; align-items: baseline; gap: 10px; margin: 28px 0 14px; }
     .group-title { font-size: 16px; font-weight: 700; }
     .group-count { font-size: 12px; color: var(--muted); }
     .group-latest { background: #ecfdf5; color: #059669; border-radius: 999px; padding: 1px 9px; font-size: 11px; }
@@ -75,7 +78,6 @@
     <span class="badge" id="summary">—</span>
     <span class="spacer"></span>
     <span class="meta" id="updatedAt"></span>
-    <span class="meta" style="color:#ef4444">点卡片右侧 🗑 删除对应记录</span>
     <label class="switch"><input type="checkbox" id="autoRefresh" checked> 自动刷新（5 秒）</label>
   </header>
 
@@ -98,20 +100,6 @@
       });
     }
 
-    const DELETE_API = "http://127.0.0.1:8765";
-
-    async function deleteFile(file) {
-      if (!confirm("删除这条聊天记录？\n\n标题：" + file.title + "\n文件：" + file.name + "\n\n删除后本地文件一并移除，不可恢复。")) return;
-      try {
-        const r = await fetch(DELETE_API + "/delete?path=" + encodeURIComponent(file.path), { method: "POST" });
-        const data = await r.json();
-        if (!data.ok) throw new Error(data.message || "删除失败");
-        await refresh();
-      } catch (e) {
-        alert("删除失败：本地删除服务未启动。\n请先双击「启动删除服务.bat」，再回到本页点删除按钮。\n线上静态页面无法直接删除文件。");
-      }
-    }
-
     function fileCard(file) {
       const wrap = document.createElement("div");
       wrap.className = "card";
@@ -125,20 +113,7 @@
         '<div class="title" title="' + escapeHtml(file.title) + '">📄 ' + escapeHtml(file.title) + "</div>" +
         '<div class="sub"><span>' + escapeHtml(file.name) + "</span><span>" + escapeHtml(splitDate(file).label) + "</span></div>";
 
-      const btn = document.createElement("button");
-      btn.className = "del-btn";
-      btn.type = "button";
-      btn.title = "删除该记录";
-      btn.textContent = "🗑";
-      btn.addEventListener("click", (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        deleteFile(file);
-      });
-
       wrap.appendChild(a);
-      wrap.appendChild(btn);
-
       return wrap;
     }
 

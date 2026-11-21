@@ -33,9 +33,6 @@ SCRIPT_TAGS = (
     '<script src="../assets/lib/render-markdown.js"></script>'
 )
 
-# 旧的“删除对话内单条消息”脚本：按需求不再保留，归档页不引用。
-RE_LONGPRESS = re.compile(r'\s*<script src="longpress-delete\.js"></script>\s*')
-
 STYLE_TAG = (
     "<style>\n"
     "  .msg-img{max-width:220px;border-radius:8px;margin:4px 0;display:block}\n"
@@ -95,8 +92,6 @@ def rewrite_html(path: Path, chat_names: set, img_map: dict, stats: dict) -> Non
     text = RE_FILE_TAG.sub(repl_file, text)
     # 裸路径里若是归档 html 也做相对化；其他文件/图片保留。
     text = RE_RAW.sub(lambda m: _repl_raw(m, chat_names, stats), text)
-    # 移除旧的单条消息删除脚本引用（对话内消息不删除）。
-    text = RE_LONGPRESS.sub("\n", text)
 
     if "render-markdown.js" not in text:
         text = text.replace("</head>", STYLE_TAG + "</head>", 1)

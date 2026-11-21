@@ -27,5 +27,5 @@ if errorlevel 1 (
 )
 
 echo.
-echo 上传完成！线上地址：https://yml-222.github.io/chat/
+echo 上传完成！线上地址：https://lingying222.github.io/chat/
 pause
