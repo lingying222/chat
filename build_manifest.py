@@ -82,8 +82,9 @@ def write_manifest(data: dict) -> None:
 
 
 def build() -> dict:
-    return {"generatedAt": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-            "root": build_node(ROOT)}
+    """清单只包含目录事实，不带生成时间——同一份目录永远得到同一份清单，
+    这样自动提交不会因为时间戳变化而反复触发。"""
+    return {"root": build_node(ROOT)}
 
 
 def main() -> None:

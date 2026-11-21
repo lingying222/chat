@@ -160,7 +160,7 @@
 
       const total = countFiles(root);
       document.getElementById("summary").textContent = total + " 个页面 · " + root.folders.length + " 个文件夹";
-      document.getElementById("updatedAt").textContent = "清单生成于 " + state.data.generatedAt;
+      document.getElementById("updatedAt").textContent = "清单随目录自动更新";
       document.getElementById("emptyTip").style.display = total === 0 ? "block" : "none";
     }
 

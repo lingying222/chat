@@ -29,6 +29,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "清单无变化"
           else
-            git commit -m "chore: 自动更新目录清单"
+            git commit -m "chore: 自动更新目录清单 [skip ci]"
             git push
           fi
