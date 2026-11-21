@@ -18,7 +18,7 @@ from datetime import datetime
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-IGNORE_DIRS = {".git", "node_modules", "__pycache__", ".venv", "venv"}
+IGNORE_DIRS = {".git", ".github", "node_modules", "__pycache__", ".venv", "venv"}
 TITLE_RE = re.compile(r"<title>(.*?)</title>", re.I | re.S)
 
 
