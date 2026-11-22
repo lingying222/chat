@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>微信聊天记录 - 2026-11-22</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                 "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #1a1a1a;
+    padding: 20px 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+    color: #e8e8e8;
+  }
+  .container {
+    max-width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+  .msg {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+  .msg:last-child { margin-bottom: 0; }
+  .msg.user { justify-content: flex-end; }
+  .msg.ai  { justify-content: flex-start; }
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+  }
+  .msg.user .avatar {
+    background: #07c160;
+    margin-left: 10px;
+  }
+  .msg.ai  .avatar {
+    background: #576b95;
+    margin-right: 10px;
+  }
+  .bubble-wrap {
+    max-width: 75%;
+  }
+  .bubble {
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 15px;
+    position: relative;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    line-height: 1.5;
+  }
+  /* 用户气泡：右边绿色，小尾巴在右上角 */
+  .msg.user .bubble {
+    background: #07c160;
+    color: #fff;
+  }
+  .msg.user .bubble::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    right: -8px;
+    border: 6px solid transparent;
+    border-left-color: #07c160;
+  }
+  /* AI气泡：左边深灰，小尾巴在左上角 */
+  .msg.ai .bubble {
+    background: #2d2d2d;
+    color: #e8e8e8;
+  }
+  .msg.ai .bubble::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: -8px;
+    border: 6px solid transparent;
+    border-right-color: #2d2d2d;
+  }
+  .time {
+    font-size: 11px;
+    color: #666;
+    margin-top: 4px;
+  }
+  .msg.user .time { text-align: right; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">微信聊天记录 · 2026-11-22</div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">该起床啦 ☀️ 新的一天开始了！</div>    <div class="time">07:40:04</div>  </div></div>
+</div>
+<script>
+  // 打开页面时自动滚到最底部
+  window.scrollTo(0, document.body.scrollHeight);
+</script>
+</body>
+</html>
