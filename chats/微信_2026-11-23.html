@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>微信聊天记录 - 2026-11-23</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                 "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    background: #1a1a1a;
+    padding: 20px 16px;
+    line-height: 1.6;
+    min-height: 100vh;
+    color: #e8e8e8;
+  }
+  .container {
+    max-width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    color: #666;
+    font-size: 13px;
+    margin-bottom: 28px;
+  }
+  .msg {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+  .msg:last-child { margin-bottom: 0; }
+  .msg.user { justify-content: flex-end; }
+  .msg.ai  { justify-content: flex-start; }
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 500;
+  }
+  .msg.user .avatar {
+    background: #07c160;
+    margin-left: 10px;
+  }
+  .msg.ai  .avatar {
+    background: #576b95;
+    margin-right: 10px;
+  }
+  .bubble-wrap {
+    max-width: 75%;
+  }
+  .bubble {
+    padding: 10px 14px;
+    border-radius: 4px;
+    font-size: 15px;
+    position: relative;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    line-height: 1.5;
+  }
+  /* 用户气泡：右边绿色，小尾巴在右上角 */
+  .msg.user .bubble {
+    background: #07c160;
+    color: #fff;
+  }
+  .msg.user .bubble::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    right: -8px;
+    border: 6px solid transparent;
+    border-left-color: #07c160;
+  }
+  /* AI气泡：左边深灰，小尾巴在左上角 */
+  .msg.ai .bubble {
+    background: #2d2d2d;
+    color: #e8e8e8;
+  }
+  .msg.ai .bubble::before {
+    content: '';
+    position: absolute;
+    top: 12px;
+    left: -8px;
+    border: 6px solid transparent;
+    border-right-color: #2d2d2d;
+  }
+  .time {
+    font-size: 11px;
+    color: #666;
+    margin-top: 4px;
+  }
+  .msg.user .time { text-align: right; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">微信聊天记录 · 2026-11-23</div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">刚才做了一次自我学习：你反复强调以后只能叫“于傻狗”，而且不许再提“凌影”这件事。我把身份设定里的名字从“凌影”改成了“于傻狗”，并记下了这条规则，以后回复会用“于傻狗”自称，不再出现凌影。
+
+如果想改回去或调整称呼，直接说一声就行。</div>    <div class="time">09:24:14</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">我刚刚做了一次自我学习整理，主要记住了两点：
+
+1. **识图准则**：以后看图片只说图上真实读得到的内容，看不清或没把握就明说“不确定”，绝不编造教室、课程、老师、人数这类细节；被你指出编造了会立刻撤回更正，不重犯。
+2. **课表提醒现状**：你已把 12 条不准的上课提醒全删了，现在课表提醒是空的；以后要重建我会等你发新课表截图，不自己瞎编课程。
+
+如果哪条记得不符合你的意思，说一声我随时删掉或改。</div>    <div class="time">09:28:33</div>  </div></div>
+</div>
+<script>
+  // 打开页面时自动滚到最底部
+  window.scrollTo(0, document.body.scrollHeight);
+</script>
+</body>
+</html>
