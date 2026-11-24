@@ -104,7 +104,17 @@
   .bubble a{color:#7db4ff;word-break:break-all}
   .bubble table{border-collapse:collapse;margin:6px 0}
   .bubble th,.bubble td{border:1px solid #555;padding:4px 8px;font-size:13px}
+  .bubble ul,.bubble ol{padding-left:20px;margin:4px 0;list-style-position:inside}
+  .bubble li{margin:2px 0}
+  .bubble li::marker{font-size:0.9em}
+  .bubble{overflow:hidden}
+  .bubble img{max-width:100%;height:auto;border-radius:6px;margin:4px 0}
+  /* Markdown list bullets inside bubbles */
+  .bubble ul{list-style:none;padding-left:0}
+  .bubble li{padding-left:12px;position:relative}
+  .bubble li::before{content:"2";position:absolute;left:0;font-size:0.9em;color:#888}
 </style>
+
 </head>
 <body>
 <div class="container">
