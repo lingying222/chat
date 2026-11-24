@@ -164,10 +164,10 @@ GitHub Pages 还在重新构建（刚推完约 1 分钟），新文件目前返�
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">试试</div>    <div class="time">12:24:55</div>  </div>  <div class="avatar">我</div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">别人问潘狗长什么样，潘狗就发这张：
 
-![潘狗](C:\Users\lingying\cow\images\144d882699c5.png)</div>    <div class="time">12:24:55</div>  </div></div>
+<img class="msg-img" src="../assets/images/1d14f945.png" alt="潘狗" /></div>    <div class="time">12:24:55</div>  </div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble"><img class="msg-img" src="../assets/images/1d14f945.png" alt="聊天图片" /></div>    <div class="time">12:24:56</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">你长什么样</div>    <div class="time">12:25:02</div>  </div>  <div class="avatar">我</div></div>
-<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">![潘狗](C:\Users\lingying\cow\images\144d882699c5.png)</div>    <div class="time">12:25:02</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble"><img class="msg-img" src="../assets/images/1d14f945.png" alt="潘狗" /></div>    <div class="time">12:25:02</div>  </div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble"><img class="msg-img" src="../assets/images/1d14f945.png" alt="聊天图片" /></div>    <div class="time">12:25:02</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">推送代码</div>    <div class="time">12:31:56</div>  </div>  <div class="avatar">我</div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">推好了 ✅ `75bd28c`
@@ -212,6 +212,40 @@ https://lingying222.github.io/chat/chats/</div>    <div class="time">12:31:56</d
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">问题找到了：图片路径是 `file://C:\Users\lingying\cow\images\...`，GitHub Pages 上当然打不开。需要：
 1. 把图片复制到 `tdwx/images/` 里一起推上去
 2. 生成 HTML 时把图片路径改写成相对路径 `images/xxx.png`</div>    <div class="time">12:40:27</div>  </div></div>
+<div class="msg user">  <div class="bubble-wrap">    <div class="bubble">看不到里面的图片，修复一下该功能</div>    <div class="time">12:41:00</div>  </div>  <div class="avatar">我</div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">修好了 ✅ 潘狗干了这几件事：
+
+1. **运行 `archive_builder.py`** — 扫描所有 HTML，把 `[图片] file://C:\...` 的本地路径全部替换成 `&lt;img src="../assets/images/xxx.png"&gt;`，同时把 14 张新图片复制到 `assets/images/`
+2. **运行 `build_manifest.py`** — 更新 manifest
+3. **推送 `7d0f815`** — 23 个文件变更（12 张新 PNG + 1 张新 JPG + HTML 路径修正 + manifest）
+
+现在 GitHub Pages 上图片都能正常显示了，等 Pages 构建完（约 1–3 分钟）刷新即可看到。</div>    <div class="time">12:41:01</div>  </div></div>
+<div class="msg user">  <div class="bubble-wrap">    <div class="bubble">[图片: C:\Users\lingying\cow\tmp\wx_7530852755726938248.jpg]</div>    <div class="time">12:41:40</div>  </div>  <div class="avatar">我</div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">看到了——你在微信/网页端里收到的是 `file://C:\Users\lingying\cow\images\...` 这种本地路径，当然显示不出来。
+
+刚才已经修复了：**`archive_builder.py` 把所有 `[图片] file://...` 都替换成了相对路径 `&lt;img src="../assets/images/xxx.png"&gt;`，并把图片复制到 `assets/images/` 里推上去了**。现在 GitHub Pages 上打开对应 HTML，图片能正常显示。
+
+你在微信里看的应该是导出的 HTML 文件本身（本地打开），那里还是旧的 `file://` 路径。要在微信里看到图片，有两条路：
+
+1. **用 Pages 线上地址看**（推荐）：`https://lingying222.github.io/chat/chats/凌影_2026-11-24.html` —— 这里图片全是相对路径，能正常加载
+2. **本地 HTML 也想看图**：得把 `assets/images/` 文件夹整个复制到 HTML 同级目录，或者把 HTML 里的 `../assets/images/` 改成 `file:///C:/Users/lingying/Desktop/tdwx/assets/images/`
+
+现在的推送 `7d0f815` 已经把修正后的 HTML + 图片全推上去了，等 Pages 构建完（1–3 分钟）刷新线上链接就能看到图了。</div>    <div class="time">12:41:40</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">两个问题看清楚了：
+
+**问题1：Markdown 图片 `![潘狗](C:\...)` 没被渲染**
+- `render-markdown.js` 第 9 行：`if (el.querySelector("img, a, video")) return;` — 只要气泡里有 `&lt;img&gt;` 就跳过整个气泡的 Markdown 渲染
+- 第 167/170 行那两条气泡里有 `![潘狗](C:\...)` 纯文本，**但同文件其他气泡有 `&lt;img&gt;` 标签**，不影响（每个 `.bubble` 独立判断）
+- 实际问题是：这些 `![...](...)` 是**原始路径的 Markdown 图片语法**，marked.js 渲染后会变成 `&lt;img src="C:\..."&gt;`，浏览器打不开
+- 需要 archive_builder.py 也把 `![...](path)` 这种 Markdown 图片路径转成相对路径
+
+**问题2：列表小圆点超出气泡**
+- `white-space: pre-wrap` + 列表 `- xxx` 在 Markdown 渲染后变成 `&lt;ul&gt;&lt;li&gt;`，但 `padding-left` 不够 + `list-style-position` 默认 `outside`，圆点跑到气泡外
+
+潘狗来修：</div>    <div class="time">12:45:34</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">现在修 Markdown 图片路径问题（`![...](C:\...)` 没被 archive_builder 处理）：</div>    <div class="time">12:45:44</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">现在跑一遍 archive_builder 验证：</div>    <div class="time">12:45:52</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">Markdown 图片已转成 `&lt;img&gt;` 标签（alt="潘狗"，src="../assets/images/1d14f945.png"），并且引用了同一张已入库的图片。现在重新生成 manifest、推送：</div>    <div class="time">12:46:15</div>  </div></div>
 </div>
 <script>
   // 打开页面时自动滚到最底部

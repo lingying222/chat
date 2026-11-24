@@ -39,6 +39,13 @@ STYLE_TAG = (
     "  .bubble a{color:#7db4ff;word-break:break-all}\n"
     "  .bubble table{border-collapse:collapse;margin:6px 0}\n"
     "  .bubble th,.bubble td{border:1px solid #555;padding:4px 8px;font-size:13px}\n"
+    "  /* 列表圆点修复：防止 li 圆点溢出气泡 */\n"
+    "  .bubble ul,.bubble ol{padding-left:20px;margin:4px 0}\n"
+    "  .bubble li{margin:2px 0}\n"
+    "  .bubble li::marker{font-size:0.9em}\n"
+    "  /* 气泡内溢出保护 */\n"
+    "  .bubble{overflow:hidden}\n"
+    "  .bubble img{max-width:100%;height:auto;border-radius:6px;margin:4px 0}\n"
     "</style>\n"
 )
 
@@ -46,6 +53,8 @@ STYLE_TAG = (
 RE_IMG_TAG = re.compile(r"\[图片\]\s*file:///?([^\s<\)]+)")
 RE_FILE_TAG = re.compile(r"\[文件\]\s*file:///?([^\s<\)]+)")
 RE_RAW = re.compile(r"file:///?([^\s<\)]+)")
+# Markdown 图片语法：![alt](path)，path 以 C:\ 或 / 开头（本地路径）
+RE_MD_IMG = re.compile(r"!\[([^\]]*)\]\(([^)\s]+\\[^)\s]+)\)")
 
 
 def normalize(raw: str) -> Path:
@@ -90,6 +99,21 @@ def rewrite_html(path: Path, chat_names: set, img_map: dict, stats: dict) -> Non
 
     text = RE_IMG_TAG.sub(repl_img, text)
     text = RE_FILE_TAG.sub(repl_file, text)
+    # Markdown 图片语法 ![alt](C:\...) → <img>，避免在 Pages 上渲染成 404
+    def repl_md_img(m: re.Match) -> str:
+        alt = m.group(1)
+        raw_path = m.group(2)
+        src = normalize(raw_path)
+        if src.suffix.lower() not in IMAGE_EXT or not src.exists():
+            stats["img_missing"] += 1
+            return m.group(0)
+        if src not in img_map:
+            name = asset_name(src)
+            shutil.copy2(src, IMG_DIR / name)
+            img_map[src] = "../assets/images/" + name
+        stats["img_copied"] += 1
+        return f'<img class="msg-img" src="{img_map[src]}" alt="{alt}" />'
+    text = RE_MD_IMG.sub(repl_md_img, text)
     # 裸路径里若是归档 html 也做相对化；其他文件/图片保留。
     text = RE_RAW.sub(lambda m: _repl_raw(m, chat_names, stats), text)
 
