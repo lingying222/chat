@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
 <title>微信聊天记录 - 2026-11-24</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -275,6 +276,17 @@ https://lingying222.github.io/chat/chats/</div>    <div class="time">12:31:56</d
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">看到了——圆点还是在气泡左边溢出了。`overflow: hidden` 和 `padding-left: 20px` 没有生效，原因：这些样式在 `archive_builder.py` 的 `STYLE_TAG` 里是**新注入的**，但已推出去的 HTML 文件里旧的 `&lt;style&gt;` 块不会自动更新（archive_builder 只在文件里找不到 `render-markdown.js` 时才注入 STYLE_TAG）。
 
 潘狗直接改现有 HTML 里的 style：</div>    <div class="time">12:49:00</div>  </div></div>
+<div class="msg user">  <div class="bubble-wrap">    <div class="bubble">列表问题，左侧的点
+[图片: C:\Users\lingying\cow\tmp\wx_7530853645380858632.jpg]
+[图片: C:\Users\lingying\cow\tmp\wx_7530854751498485000.jpg]</div>    <div class="time">12:49:28</div>  </div>  <div class="avatar">我</div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">推送 `6c0e234` 完成。现在所有 8 个聊天 HTML 文件都打了补丁，新增的列表样式包含：
+
+- `.bubble ul { list-style: none; padding-left: 0; }` — 去掉默认圆点
+- `.bubble li { padding-left: 12px; position: relative; }` — 给自定义圆点留空间
+- `.bubble li::before { content: "•"; position: absolute; left: 0; font-size: 0.9em; color: #888; }` — 自定义圆点在气泡内部，不溢出
+
+等 Pages 重新构建（1–3 分钟）刷新即可看到圆点正确显示在气泡内部了。</div>    <div class="time">12:49:28</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">也给聊天记录 HTML 加上：</div>    <div class="time">12:51:38</div>  </div></div>
 </div>
 <script>
   // 打开页面时自动滚到最底部
