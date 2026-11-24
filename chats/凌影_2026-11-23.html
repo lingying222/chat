@@ -99,6 +99,12 @@
   }
   .msg.user .time { text-align: right; }
 </style>
+<style>
+  .msg-img{max-width:220px;border-radius:8px;margin:4px 0;display:block}
+  .bubble a{color:#7db4ff;word-break:break-all}
+  .bubble table{border-collapse:collapse;margin:6px 0}
+  .bubble th,.bubble td{border:1px solid #555;padding:4px 8px;font-size:13px}
+</style>
 </head>
 <body>
 <div class="container">
@@ -252,7 +258,7 @@
 - 中间远程有别人的提交，我 rebase 拉下来再推的，没丢你本地改动
 - 现在 GitHub Pages 地址还是：https://lingying222.github.io/chat/</div>    <div class="time">13:59:26</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">生成一只猫咪</div>    <div class="time">14:02:29</div>  </div>  <div class="avatar">我</div></div>
-<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">[图片] file://C:\Users\lingying\cow\images\67661ea13393.png</div>    <div class="time">14:02:29</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble"><img class="msg-img" src="../assets/images/ebe992a0.png" alt="聊天图片" /></div>    <div class="time">14:02:29</div>  </div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">给你生成了一只坐在窗台上的橘猫，晨光透过窗户，挺治愈的～ 🐱</div>    <div class="time">14:02:29</div>  </div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">图片生成好了，发给了小潘 ✅
 
@@ -260,7 +266,7 @@
 - 小潘那边（通道二）应该收到了
 - 你这边我也顺手发一份给你看：</div>    <div class="time">14:04:00</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">给微信小潘也生成一张并发给他</div>    <div class="time">14:04:04</div>  </div>  <div class="avatar">我</div></div>
-<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">[图片] file://C:\Users\lingying\cow\images\c0fd5cbc00d0.png</div>    <div class="time">14:04:05</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble"><img class="msg-img" src="../assets/images/8833f7a0.png" alt="聊天图片" /></div>    <div class="time">14:04:05</div>  </div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">图片生成好了，发给了小潘 ✅</div>    <div class="time">14:04:05</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">给小潘创建一个定时任务，60分钟后提醒他上厕所</div>    <div class="time">14:47:55</div>  </div>  <div class="avatar">我</div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">好了，任务 ID 2315442b 已创建并启用，15:47 会准时触发给小潘提醒上厕所 🚽</div>    <div class="time">14:47:55</div>  </div></div>
@@ -373,7 +379,7 @@
 
 要我打开哪个看看具体内容有没有新增/变化？比如看看 **凌影_2026-11-23** 19:09 那次更新是不是有新对话。</div>    <div class="time">19:10:15</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">推送代码</div>    <div class="time">19:12:03</div>  </div>  <div class="avatar">我</div></div>
-<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">[文件] file://C:\Users\lingying\Desktop\tdwx\chats\凌影_2026-11-23.html</div>    <div class="time">19:12:03</div>  </div></div>
+<div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble"><a href="凌影_2026-11-23.html">凌影_2026-11-23.html</a></div>    <div class="time">19:12:03</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">我开了代理，再试试</div>    <div class="time">19:19:04</div>  </div>  <div class="avatar">我</div></div>
 <div class="msg ai">  <div class="avatar">AI</div>  <div class="bubble-wrap">    <div class="bubble">推上去了 ✅ `e582d98` → `main`（3 个文件、+132 行）。</div>    <div class="time">19:19:04</div>  </div></div>
 <div class="msg user">  <div class="bubble-wrap">    <div class="bubble">核对一下，别乱说</div>    <div class="time">19:19:29</div>  </div>  <div class="avatar">我</div></div>
@@ -391,5 +397,8 @@
   // 打开页面时自动滚到最底部
   window.scrollTo(0, document.body.scrollHeight);
 </script>
+<script src="../assets/lib/marked.min.js"></script>
+<script src="../assets/lib/purify.min.js"></script>
+<script src="../assets/lib/render-markdown.js"></script>
 </body>
 </html>

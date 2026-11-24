@@ -99,6 +99,12 @@
   }
   .msg.user .time { text-align: right; }
 </style>
+<style>
+  .msg-img{max-width:220px;border-radius:8px;margin:4px 0;display:block}
+  .bubble a{color:#7db4ff;word-break:break-all}
+  .bubble table{border-collapse:collapse;margin:6px 0}
+  .bubble th,.bubble td{border:1px solid #555;padding:4px 8px;font-size:13px}
+</style>
 </head>
 <body>
 <div class="container">
@@ -109,5 +115,8 @@
   // 打开页面时自动滚到最底部
   window.scrollTo(0, document.body.scrollHeight);
 </script>
+<script src="../assets/lib/marked.min.js"></script>
+<script src="../assets/lib/purify.min.js"></script>
+<script src="../assets/lib/render-markdown.js"></script>
 </body>
 </html>
